@@ -246,6 +246,21 @@ table.matrix td.hl{background:rgba(139,92,246,.28)}
 .split .bignum{flex-direction:column;align-items:flex-start;gap:10px;margin:0}
 .split .points{margin:0}
 @media (max-width:900px){.split{grid-template-columns:1fr;gap:18px}.split .bignum{flex-direction:row;align-items:baseline;gap:14px}}
+.rot-print{display:none}
+/* ?shot=N renders slide N alone in its final state (used to export the PDF) */
+html.shot section.block{display:none}
+html.shot section.block.shotsel{display:flex}
+html.shot .hud,html.shot .keys,html.shot .bar,html.shot #index{display:none!important}
+html.shot .rot{display:none!important}
+html.shot .rot-print{display:inline;color:var(--teal);font-weight:700}
+html.shot *,html.shot *::before,html.shot *::after{animation:none!important;transition:none!important}
+html.shot.motion section.block>*,html.shot .rv,html.shot.rv-armed .rv{opacity:1!important;transform:none!important}
+html.shot [data-step]:not(table){opacity:1!important}
+html.shot svg.diagram .edge[data-step]{stroke-dashoffset:0!important}
+html.shot table.matrix tr[data-step]{opacity:1!important;transform:none!important}
+html.shot .chat .msg,html.shot .chat.armed .msg{opacity:1!important;transform:none!important}
+html.shot .chat .ch,html.shot .chat.armed .ch{opacity:1!important;box-shadow:none!important}
+html.shot .msg.dots{display:none!important}
 .chips16{display:flex;flex-wrap:wrap;gap:10px;margin:.2em 0 1em;max-width:1300px}
 .chips16 span{width:52px;height:52px;display:grid;place-items:center;font-size:1.6em;background:var(--bg-card);border:1px solid var(--border);border-radius:14px}
 .vs2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:1300px}
@@ -285,14 +300,35 @@ section.block.qa .qrs{width:100%;margin-left:auto;margin-right:auto}
 .vs2 h3{margin:0 0 .5em;font-size:1.2em}
 .vs2 p{margin:0}
 @media (max-width:900px){.vs2{grid-template-columns:1fr}.chips16 span{width:44px;height:44px}}
-.benefits{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1400px;margin:.4em 0 1.2em}
+.decs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1400px;margin-top:.4em}
+.dec,.les{display:flex;flex-direction:column;gap:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:22px 24px;font-size:.85em;line-height:1.45}
+.dec .de,.les .de{font-size:2em;line-height:1;margin-bottom:.2em}
+.dec h3,.les h3{margin:0 0 .15em;font-size:1.2em;line-height:1.25}
+.dec p,.les p{margin:0}
+.dec p b{font-weight:600;color:var(--teal)}
+.dec .cost,.les .lsn{margin-top:auto;padding-top:.7em;border-top:1px solid var(--border);color:var(--muted)}
+.dec .cost b,.les .lsn b{font-family:var(--mono);font-size:.78em;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);margin-right:.5em;font-weight:500}
+.lessons{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:18px;max-width:1300px;margin-top:.4em;align-items:stretch}
+.lcol{display:grid;gap:18px}
+.lcol .les{height:100%}
+.les.star{border:2px solid transparent;background:linear-gradient(var(--bg-card),var(--bg-card)) padding-box,var(--grad) border-box;padding:24px 28px;gap:8px}
+.les.star .tag{font-family:var(--mono);font-size:.7em;text-transform:uppercase;letter-spacing:.08em;color:var(--teal)}
+.les.star h3{font-size:1.5em}
+.les.star ul{margin:.1em 0 .3em;padding-left:1.2em}
+.les.star li{margin:.15em 0}
+.les.star a{color:var(--teal);text-decoration:none;border-bottom:2px solid rgba(45,212,191,.45)}
+.les.star a:hover{border-color:var(--teal)}
+.les{padding:18px 22px}
+@media (max-width:1000px){.decs,.lessons{grid-template-columns:1fr}}
+.benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:1400px;margin:.4em 0 1.2em}
 .benefits>div{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:24px 26px;font-size:.85em;line-height:1.45}
 .benefits .ico{display:block;font-size:2em;line-height:1;margin-bottom:.5em}
 .benefits h3{margin:0 0 .5em;font-size:1.25em}
 .benefits p{margin:0;color:var(--text)}
 .price{max-width:1400px;padding:16px 24px;border-radius:16px;border:1px solid var(--teal);background:rgba(14,17,24,.92);font-size:1.05em;line-height:1.4;color:var(--text)}
 .price b{color:var(--teal)}
-@media (max-width:900px){.benefits{grid-template-columns:1fr}}
+@media (max-width:1100px){.benefits{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.benefits{grid-template-columns:1fr}}
 .bignum2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1100px}
 .bn{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:22px 28px;display:grid;gap:12px;align-content:start}
 ol.fiveq{list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:44em}
@@ -340,9 +376,9 @@ section.block.compact p.punch{margin-top:.8em}
 .feats .fh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.5em;font-size:1.3em}
 .feats .fh span{font-family:var(--mono);font-size:.55em;color:var(--muted)}
 .fgrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
-.feat{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:20px 20px;font-size:.92em;line-height:1.4}
-.feat .fe{display:block;font-size:2em;line-height:1;margin-bottom:.35em}
-.feat b{display:block;font-size:1.05em;margin-bottom:.25em}
+.feat{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:26px 22px;font-size:1.05em;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:9em}
+.feat .fe{display:block;font-size:2.4em;line-height:1;margin-bottom:.35em}
+.feat b{display:block;font-size:1.05em}
 .feat p{margin:0;color:var(--muted)}
 @media (max-width:1100px){.fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .answer{background:var(--bg-card);border:2px solid transparent;background:linear-gradient(var(--bg-card),var(--bg-card)) padding-box,var(--grad) border-box;border-radius:20px;padding:20px 28px;max-width:34em}
@@ -465,17 +501,6 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   </ul>
 </section>
 
-<section class="block" data-min="3-3.5" id="newhire" data-title="The new hire">
-  <h2>You would never bring in a new engineer <span class="grad">like this</span></h2>
-  <ul class="nope">
-    <li class="rv"><span class="x">&times;</span>Production access on day one</li>
-    <li class="rv"><span class="x">&times;</span>No guidance</li>
-    <li class="rv"><span class="x">&times;</span>No manager</li>
-    <li class="rv"><span class="x">&times;</span>No audit trail</li>
-  </ul>
-  <div><p class="punch rv">So why would we put agents to work that way?</p></div>
-</section>
-
 <section class="block" id="five" data-min="3.5-4.75" data-title="The onboarding checklist for an agent" data-mode="Talk">
   <h2>The onboarding checklist <span class="grad">for an agent</span></h2>
   <ol class="fiveq">
@@ -527,15 +552,16 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   <div class="vs2-wide rv">Spend your prompts on your problem, not on the platform.</div>
 </section>
 
-<section class="block" id="whyoss" data-min="6.75-7.75" data-title="Why open-source AI platforming, for a leader" data-mode="Talk">
+<section class="block compact" id="whyoss" data-min="6.75-7.75" data-title="Why open-source AI platforming, for a leader" data-mode="Talk">
   <h2>Why <span class="grad">open-source AI platforming,</span> for a leader</h2>
   <p class="lead">The platform that runs your agents and their tools is the one you need to trust the most.</p>
   <div class="benefits">
     <div class="rv"><span class="ico" aria-hidden="true">🔓</span><h3>No lock-in</h3><p>Your agents, skills and knowledge bases stay yours if a vendor changes terms or pricing.</p></div>
     <div class="rv"><span class="ico" aria-hidden="true">🔍</span><h3>Trust you can audit</h3><p>Inspect how the platform handles access, approvals and traces for every agent, instead of taking it on faith.</p></div>
     <div class="rv"><span class="ico" aria-hidden="true">🛠️</span><h3>You can tinker with it</h3><p>Adapt the platform to your specific needs: your tools, your workflows, your rules. No waiting for a vendor roadmap.</p></div>
+    <div class="rv"><span class="ico" aria-hidden="true">🤝</span><h3>You can give back</h3><p>Contribute improvements and features born from your experience in the field, like issue #3090, and the whole community benefits.</p></div>
   </div>
-  <div class="price rv"><b>The price:</b> you run it. For an AI platform, that is worth knowing up front.</div>
+  <div class="price rv"><b>The price:</b> you run it. For an AI platform, that is worth knowing up front.<br><b>Mind your bandwidth:</b> if your engineering team does not have the capacity to run it, a managed option may fit better.</div>
 </section>
 
 <section class="block" id="caipe" data-min="7.75-8" data-title="An open-source alternative worth considering" data-mode="Talk">
@@ -551,53 +577,36 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
       <div class="said">
         <span class="lab">What caipe.io says</span>
         <b class="big grad">Open Source AI Platform for All</b>
-        <p>Build, govern, and operate secure AI agents and workflows for <span class="rot" id="rot" aria-live="off">teams</span>.</p>
+        <p>Build, govern, and operate secure AI agents and workflows for <span class="rot" id="rot" aria-live="off">teams</span><span class="rot-print">teams, enterprises, individuals, you</span>.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="block compact" id="inspect" data-min="8-8.25" data-title="What CAIPE brings to the table" data-mode="Talk">
-  <div class="feats" data-step="1">
-    <div class="fgrid">
-      <div class="feat" data-step="2"><span class="fe" aria-hidden="true">🎼</span><b>Multi-agent orchestration</b><p>Dynamic agents connected to first-party and external MCP servers.</p></div>
-      <div class="feat" data-step="3"><span class="fe" aria-hidden="true">📚</span><b>Knowledge bases</b><p>Hybrid RAG and optional Graph RAG across web, AWS, Kubernetes, Jira, GitHub, Slack and more.</p></div>
-      <div class="feat" data-step="4"><span class="fe" aria-hidden="true">💭</span><b>Agent memory</b><p>Cross-session fact extraction and per-user context.</p></div>
-      <div class="feat" data-step="5"><span class="fe" aria-hidden="true">🔒</span><b>Enterprise security</b><p>OIDC SSO, Okta RBAC and policy-based tool restrictions.</p></div>
-      <div class="feat" data-step="6"><span class="fe" aria-hidden="true">🚀</span><b>Flexible deployment</b><p>Helm or Docker Compose, with Langfuse tracing.</p></div>
-      <div class="feat" data-step="7"><span class="fe" aria-hidden="true">🔀</span><b>Workflows</b><p>Ordered agent steps with run history and artifacts.</p></div>
-      <div class="feat" data-step="8"><span class="fe" aria-hidden="true">🛠️</span><b>Agent Builder</b><p>Governed agents with set models, tools, knowledge and guardrails.</p></div>
-      <div class="feat" data-step="9"><span class="fe" aria-hidden="true">🔌</span><b>Bring your own MCP servers</b><p>Plug in external MCP servers and custom agents.</p></div>
-      <div class="feat" data-step="10"><span class="fe" aria-hidden="true">🔄</span><b>Multi-model support</b><p>Claude, OpenAI, Gemini or any compatible endpoint. Swap without rewiring.</p></div>
-      <div class="feat" data-step="11"><span class="fe" aria-hidden="true">💬</span><b>Multiple clients</b><p>Web UI, Chat CLI, Slack and Webex.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="block compact" data-min="8.25-9.25" data-title="Demo primer: scenario and cast" data-mode="Talk">
+<section class="block compact" data-min="8-9" data-title="Demo primer: scenario and cast" data-mode="Talk">
   <h2>The scenario: <span class="grad">LedgerLite</span></h2>
   <div class="scene" role="group" aria-label="The situation">
-    <div class="sc" data-step="1"><span class="se" aria-hidden="true">🏦</span><div><b>LedgerLite</b><span>A fictional invoicing and card-payments app, running on Kubernetes</span></div></div>
-    <div class="sc" data-step="2"><span class="se" aria-hidden="true">🚀</span><div><b>25 minutes ago</b><span>A new release went out</span></div></div>
-    <div class="sc bad" data-step="3"><span class="se" aria-hidden="true">💥</span><div><b>Now</b><span>Paying an invoice fails</span></div></div>
+    <div class="sc"><span class="se" aria-hidden="true">🏦</span><div><b>LedgerLite</b><span>A fictional invoicing and card-payments app, running on Kubernetes</span></div></div>
+    <div class="sc"><span class="se" aria-hidden="true">🚀</span><div><b>25 minutes ago</b><span>A new release went out</span></div></div>
+    <div class="sc bad"><span class="se" aria-hidden="true">💥</span><div><b>Now</b><span>Paying an invoice fails</span></div></div>
   </div>
   <p class="lbl">What happens next</p>
   <ol class="story" role="list" aria-label="Scenario flow: customer reports, Jira ticket, on-call engineer runs the Incident Copilot, agents investigate, diagnosis posted on the ticket, human approves or rejects">
-    <li class="st h" data-step="4"><span class="se" aria-hidden="true">😟</span><i>1</i><b>Indira</b><span>Payment fails, she reports it</span></li>
-    <li class="st" data-step="5"><span class="se" aria-hidden="true">🎫</span><i>2</i><b><img class="lgi" src="assets/logos/jira.svg" alt="">Jira ticket</b><span>Created in the shared project</span></li>
-    <li class="st h" data-step="6"><span class="se" aria-hidden="true">🧑‍💻</span><i>3</i><b>Beatriz</b><span>Runs the Incident Copilot</span></li>
-    <li class="st a" data-step="7"><span class="se" aria-hidden="true">🤖</span><i>4</i><b>Agents</b><span>Cluster Agent and Knowledge Agent investigate</span></li>
-    <li class="st" data-step="8"><span class="se" aria-hidden="true">📝</span><i>5</i><b>Diagnosis</b><span>Posted on the ticket</span></li>
-    <li class="st h" data-step="9"><span class="se" aria-hidden="true">✅</span><i>6</i><b>Beatriz</b><span>Approves or rejects</span></li>
+    <li class="st h"><span class="se" aria-hidden="true">😟</span><i>1</i><b>Indira</b><span>Payment fails, she reports it</span></li>
+    <li class="st"><span class="se" aria-hidden="true">🎫</span><i>2</i><b><img class="lgi" src="assets/logos/jira.svg" alt="">Jira ticket</b><span>Created in the shared project</span></li>
+    <li class="st h"><span class="se" aria-hidden="true">🧑‍💻</span><i>3</i><b>Beatriz</b><span>Runs the Incident Copilot</span></li>
+    <li class="st a"><span class="se" aria-hidden="true">🤖</span><i>4</i><b>Agents</b><span>Cluster Agent and Knowledge Agent investigate</span></li>
+    <li class="st"><span class="se" aria-hidden="true">📝</span><i>5</i><b>Diagnosis</b><span>Posted on the ticket</span></li>
+    <li class="st h"><span class="se" aria-hidden="true">✅</span><i>6</i><b>Beatriz</b><span>Approves or rejects</span></li>
   </ol>
   <div class="cast2">
-    <div class="row2" data-step="10"><span class="lab2">People</span>
+    <div class="row2"><span class="lab2">People</span>
       <div class="c h"><span aria-hidden="true">🙋</span><b>Indira</b><span>Customer</span></div>
       <div class="c h"><span aria-hidden="true">🎧</span><b>João</b><span>Support</span></div>
       <div class="c h"><span aria-hidden="true">🧑‍💻</span><b>Beatriz</b><span>On-call engineer</span></div>
       <div class="c h"><span aria-hidden="true">🧑‍💼</span><b>Miguel</b><span>Owner</span></div>
     </div>
-    <div class="row2" data-step="11"><span class="lab2">Agents</span>
+    <div class="row2"><span class="lab2">Agents</span>
       <div class="c a"><span aria-hidden="true">🛟</span><b>Incident Copilot</b><span>Resolves a ticket end to end</span></div>
       <div class="c a"><span aria-hidden="true">☸️</span><b><img class="lgi" src="assets/logos/kubernetes.svg" alt="">Cluster Agent</b><span>Investigates the cluster</span></div>
       <div class="c a"><span aria-hidden="true">📚</span><b>Knowledge Agent</b><span>Answers from docs, with citations</span></div>
@@ -606,7 +615,7 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   </div>
 </section>
 
-<section class="block compact" data-min="8.25-9.25" data-title="Demo primer: components" data-mode="Talk">
+<section class="block compact" data-min="8-9" data-title="Demo primer: components" data-mode="Talk">
   <h2>What is <span class="grad">in the picture</span></h2>
   <svg class="diagram" viewBox="0 0 1240 450" role="img" aria-labelledby="comp-t" data-diagram="components">
     <title id="comp-t">Components: people reach CAIPE through the web UI or through Slack, whose bot is part of CAIPE; CAIPE holds four agents, a skill and three knowledge bases; agents call MCP tool servers that reach Jira and the Kubernetes cluster</title>
@@ -661,28 +670,27 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   <p class="src">The agents do not change, only the front door: Slack reaches the same agents, teams and approvals as the web UI.</p>
 </section>
 
-<section class="block has-strip" data-min="9.25-12.25" data-title="Demo A: Own it" data-mode="Demo A">
-  <h2>Own it</h2>
-  <div class="cue">Agents, skills, knowledge bases, and who sees what.</div>
-  <div class="qstrip" role="group" aria-label="The five questions; lit: Who can use it?, What can it touch?, What does it know?"><span class="q on"><span class="qn">1</span>Who can use it?</span><span class="q on"><span class="qn">2</span>What can it touch?</span><span class="q on"><span class="qn">3</span>What does it know?</span><span class="q"><span class="qn">4</span>Who approved it?</span><span class="q"><span class="qn">5</span>What happened?</span></div>
-</section>
-
-<section class="block has-strip" data-min="12.25-13.25" data-title="Trust it: guardrails" data-mode="Talk">
-  <h2>Trust it: <span class="grad">guardrails</span></h2>
-  <ul class="points tagged">
-    <li><span><span class="em" aria-hidden="true">✋</span><b>Approval</b> before every change</span><span class="qtag">Q4</span></li>
-    <li><span><span class="em" aria-hidden="true">🧰</span><b>Few tools</b> per agent</span><span class="qtag">Q2</span></li>
-    <li><span><span class="em" aria-hidden="true">🔐</span><b>Separate</b> read and write identities</span><span class="qtag">Q2</span></li>
-    <li><span><span class="em" aria-hidden="true">👥</span><b>Access</b> is a team setting</span><span class="qtag">Q1</span></li>
-    <li><span><span class="em" aria-hidden="true">🎫</span><b>Tickets</b> are data, not orders</span><span class="qtag">Q3</span></li>
-  </ul>
-  <div class="qstrip" role="group" aria-label="The five questions; lit: Who can use it?, What can it touch?, What does it know?, Who approved it?"><span class="q on"><span class="qn">1</span>Who can use it?</span><span class="q on"><span class="qn">2</span>What can it touch?</span><span class="q on"><span class="qn">3</span>What does it know?</span><span class="q on"><span class="qn">4</span>Who approved it?</span><span class="q"><span class="qn">5</span>What happened?</span></div>
-</section>
-
-<section class="block has-strip" data-min="13.25-17.25" data-title="Demo B: Run it" data-mode="Demo B">
-  <h2>Run it</h2>
-  <div class="cue">A release went out 25 minutes ago. Payments are failing.</div>
-  <div class="qstrip" role="group" aria-label="The five questions; lit: Who can use it?, What can it touch?, What does it know?, Who approved it?"><span class="q on"><span class="qn">1</span>Who can use it?</span><span class="q on"><span class="qn">2</span>What can it touch?</span><span class="q on"><span class="qn">3</span>What does it know?</span><span class="q on"><span class="qn">4</span>Who approved it?</span><span class="q"><span class="qn">5</span>What happened?</span></div>
+<section class="block" data-min="16-17.25" data-title="Lessons from the field" data-mode="Talk">
+  <h2>Lessons <span class="grad">from the field</span></h2>
+  <div class="lessons">
+    <div class="lcol">
+      <div class="les rv"><span class="de" aria-hidden="true">🧱</span><h3>A fresh install that failed</h3><p>An image that would not pull, a service that exited at once. 7 issues filed on the CAIPE repository so far.</p><div class="lsn"><b>Lesson</b> Budget time to run it, and file issues as you go.</div></div>
+      <div class="les rv"><span class="de" aria-hidden="true">🙋</span><h3>A Slack user with zero tools</h3><p>Created from Slack alone, they got a 403 from every tool server until a first web UI sign-in.</p><div class="lsn"><b>Lesson</b> Identity is part of the platform. Test as a real person.</div></div>
+    </div>
+    <div class="les star rv">
+      <span class="tag">From lesson to contribution</span>
+      <span class="de" aria-hidden="true">🤝</span>
+      <h3>Six traps, one proposal</h3>
+      <p>Putting CAIPE behind my own domains and a tunnel cost me six traps. One service restarted about <b>5,900 times</b> over a single setting.</p>
+      <p>So I proposed <a href="https://github.com/caipe-io/ai-platform-engineering/issues/3090" target="_blank" rel="noopener"><b>#3090</b></a>, an official guide to running CAIPE on custom domains:</p>
+      <ul>
+        <li>every URL and issuer setting, public or internal</li>
+        <li>one place to set the domain, not eight</li>
+        <li>a checklist to verify it works</li>
+      </ul>
+      <div class="lsn"><b>Lesson</b> Turn your scars into a proposal.</div>
+    </div>
+  </div>
 </section>
 
 <section class="block" data-min="17.25-18" data-title="Forge at Splunk" data-mode="Talk">
@@ -696,7 +704,7 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
         <li><span class="em" aria-hidden="true">🤖</span><b>About 32%</b> resolved with no human engagement</li>
         <li><span class="em" aria-hidden="true">⏱️</span><b>3.7 hours</b> baseline to &ldquo;mere minutes&rdquo;</li>
       </ul>
-      <p class="src">Source: Outshift by Cisco blog, published 2026-04-24.</p>
+      <p class="src">Source: Outshift by Cisco blog, published 2026-04-24. Figures self-reported by the team.</p>
     </div>
     <div class="side">
       <div class="logo wide" aria-hidden="true"><div class="glow"></div><img class="lgw" src="assets/logos/splunk.svg" alt=""></div>
@@ -1073,6 +1081,23 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   function rvReset(keep){blocks.forEach(function(b,k){if(k!==keep)rvItems(b).forEach(function(x){x.classList.remove('on')})})}
 
   mark(0);
+
+  /* ---- ?shot=N: show slide N alone, in its final state, with a still wave frame (PDF export) ---- */
+  var shotM=location.search.match(/[?&]shot=(\d+)/);
+  if(shotM){
+    var sn=+shotM[1]-1;
+    document.documentElement.classList.add('shot');
+    blocks.forEach(function(b,k){b.classList.toggle('shotsel',k===sn);b.classList.add('in')});
+    [].forEach.call(document.querySelectorAll('.rv,[data-step]'),function(e){e.classList.add('on')});
+    bgStart=function(){}; if(bgDelay)clearTimeout(bgDelay); if(bgRaf)cancelAnimationFrame(bgRaf); bgRaf=0;
+    tgt_p=presetFor(sn); cur_p=Object.assign({},tgt_p); energy=energyTgt=1; boost=1;
+    function shotWaves(){bgResize();bgDraw(6)}
+    shotWaves(); window.addEventListener('resize',shotWaves); setTimeout(shotWaves,300); setTimeout(shotWaves,1500);
+    setTimeout(function(){ /* link rectangles, so the PDF export can make them clickable */
+      var out=[]; [].forEach.call(document.querySelectorAll('section.shotsel a[href]'),function(a){var r=a.getBoundingClientRect();if(r.width>0)out.push({x:r.left,y:r.top,w:r.width,h:r.height,href:a.href})});
+      var pre=document.createElement('pre'); pre.id='__rects'; pre.style.display='none'; pre.textContent=JSON.stringify(out); document.body.appendChild(pre);
+    },2000);
+  }
 })();
 </script>
 <script>
