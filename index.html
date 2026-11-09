@@ -297,6 +297,11 @@ section.block.qa .qrs{width:100%;margin-left:auto;margin-right:auto}
 .qr .u{font-family:var(--mono);font-size:.58em;color:var(--muted);overflow-wrap:anywhere}
 @media (max-width:1200px){.qrs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.qrs{grid-template-columns:1fr}}
+.t b img.in{width:16px;height:16px;vertical-align:-2px;margin-right:7px;filter:brightness(0) invert(1);opacity:.92}
+.t.sw b img.in{filter:brightness(0) saturate(100%) invert(80%) sepia(40%) saturate(900%) hue-rotate(125deg)}
+.lgs{display:flex;flex-wrap:wrap;gap:7px;margin:3px 0 1px}
+.lgs img[src$="splunk.svg"]{width:58px;height:58px;margin:-19px -5px}
+.lgs img{width:20px;height:20px;object-fit:contain;filter:brightness(0) invert(1);opacity:.9}
 .mosaic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1450px;margin-top:.2em}
 .grp{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
 .grp h3{margin:0;font-size:.95em;display:flex;align-items:center;gap:10px;color:var(--text)}
@@ -369,6 +374,22 @@ section.block.compact p.punch{margin-top:.8em}
 .opt h3{margin:0 0 .6em;font-size:1.2em}
 .opt p{margin:0 0 .6em}.opt p:last-child{margin:0}
 .opt b{font-family:var(--mono);font-size:.8em;font-weight:500;color:var(--teal);text-transform:uppercase;letter-spacing:.05em;margin-right:.4em}
+section.block.compact.forge{padding-top:124px}
+.fhead{display:flex;align-items:center;justify-content:space-between;gap:40px;max-width:1400px;margin-bottom:.5em}
+.fhead .lead{max-width:30em;margin-bottom:0}
+.fsplunk{width:240px;height:240px;flex:none;margin:-85px 0;filter:brightness(0) invert(1);opacity:.95}
+.fcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:1400px}
+.fc{display:flex;flex-direction:column;gap:6px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:20px 24px;font-size:.82em;line-height:1.45}
+.fc .de{font-size:1.9em;line-height:1}
+.fc h3{margin:0;font-size:1.2em}
+.fc p{margin:0}
+.fc b{font-weight:600;color:var(--teal)}
+.fmetrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;max-width:1400px;margin-top:16px}
+.fm{display:flex;flex-direction:column;gap:2px;background:rgba(45,212,191,.07);border:1px solid rgba(45,212,191,.35);border-radius:18px;padding:14px 18px}
+.fm span{font-size:1.3em;line-height:1}
+.fm b{font-size:1.5em;line-height:1.15;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content}
+.fm small{color:var(--muted);font-size:.7em;line-height:1.3}
+@media (max-width:1000px){.fcards{grid-template-columns:1fr}.fmetrics{grid-template-columns:repeat(2,minmax(0,1fr))}.fhead{flex-direction:column;gap:10px}}
 .split2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;max-width:1500px}
 .split2 .side{display:grid;gap:18px;justify-items:center}
 .split2 .txt h2{margin-bottom:.4em}
@@ -607,12 +628,12 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   <h2>What is inside, <span class="grad">and what you can swap</span></h2>
   <p class="lead">The open-source parts of CAIPE, grouped by purpose. The highlighted ones can be swapped if your stack differs.</p>
   <div class="mosaic">
-    <div class="grp" data-step="1"><h3><span aria-hidden="true">🧠</span>Agents and state</h3><div class="tiles"><div class="t"><b>Dynamic agents</b></div><div class="t"><b>Autonomous agents</b></div><div class="t sw"><b>Models</b><small>Claude, OpenAI, Gemini or any compatible endpoint</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b>Document store</b><small>MongoDB or DocumentDB</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
-    <div class="grp" data-step="2"><h3><span aria-hidden="true">🔧</span>Tools</h3><div class="tiles"><div class="t sw"><b>MCP tool servers</b><small>GitHub, Jira, Confluence, ArgoCD, PagerDuty, Komodor, Backstage, Splunk, Slack, Webex, SharePoint, NetUtils. Bring your own.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
-    <div class="grp" data-step="3"><h3><span aria-hidden="true">📚</span>Knowledge</h3><div class="tiles"><div class="t"><b>RAG server</b></div><div class="t"><b>Vector store</b><small>Milvus</small></div><div class="t"><b>Graph store</b><small>Neo4j, optional</small></div><div class="t sw"><b>Ingestors</b><small>Web, Jira, Confluence, Slack, Webex</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
-    <div class="grp" data-step="4"><h3><span aria-hidden="true">🔐</span>Identity and access</h3><div class="tiles"><div class="t sw"><b>Keycloak</b><small>OIDC single sign-on, Okta supported</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t"><b>OpenFGA</b><small>Who may do what</small></div><div class="t"><b>agentgateway</b><small>Gate for tool calls</small></div></div></div>
-    <div class="grp" data-step="5"><h3><span aria-hidden="true">🔭</span>Observability</h3><div class="tiles"><div class="t"><b>Langfuse</b><small>Traces, tokens and cost</small></div><div class="t sw"><b>Metrics</b><small>Prometheus and OpenTelemetry, shipped anywhere. We used Splunk.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
-    <div class="grp" data-step="6"><h3><span aria-hidden="true">💬</span>Front doors</h3><div class="tiles"><div class="t"><b>Web UI</b></div><div class="t"><b>Chat CLI</b></div><div class="t sw"><b>Slack bot</b><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b>Webex bot</b><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="1"><h3><span aria-hidden="true">🧠</span>Agents and state</h3><div class="tiles"><div class="t"><b>Dynamic agents</b></div><div class="t"><b>Autonomous agents</b></div><div class="t sw"><b>Models</b><span class="lgs"><img src="assets/logos/claude.svg" alt="claude"><img src="assets/logos/openai.svg" alt="openai"><img src="assets/logos/googlegemini.svg" alt="googlegemini"></span><small>or any compatible endpoint</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b>Document store</b><span class="lgs"><img src="assets/logos/mongodb.svg" alt="mongodb"><img src="assets/logos/documentdb.svg" alt="documentdb"></span><small>MongoDB or DocumentDB</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="2"><h3><span aria-hidden="true">🔧</span>Tools</h3><div class="tiles"><div class="t sw"><b>MCP tool servers</b><span class="lgs"><img src="assets/logos/github.svg" alt="github"><img src="assets/logos/jira.svg" alt="jira"><img src="assets/logos/confluence.svg" alt="confluence"><img src="assets/logos/argo.svg" alt="argo"><img src="assets/logos/pagerduty.svg" alt="pagerduty"><img src="assets/logos/backstage.svg" alt="backstage"><img src="assets/logos/splunk.svg" alt="splunk"><img src="assets/logos/slack.svg" alt="slack"><img src="assets/logos/webex.svg" alt="webex"></span><small>and more. Bring your own.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="3"><h3><span aria-hidden="true">📚</span>Knowledge</h3><div class="tiles"><div class="t"><b>RAG server</b></div><div class="t"><b><img class="in" src="assets/logos/milvus.svg" alt="">Vector store</b><small>Milvus</small></div><div class="t"><b><img class="in" src="assets/logos/neo4j.svg" alt="">Graph store</b><small>Neo4j, optional</small></div><div class="t sw"><b>Ingestors</b><span class="lgs"><img src="assets/logos/jira.svg" alt="jira"><img src="assets/logos/confluence.svg" alt="confluence"><img src="assets/logos/slack.svg" alt="slack"><img src="assets/logos/webex.svg" alt="webex"></span><small>and the web</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="4"><h3><span aria-hidden="true">🔐</span>Identity and access</h3><div class="tiles"><div class="t sw"><b><img class="in" src="assets/logos/keycloak.svg" alt="">Keycloak</b><small>OIDC single sign-on, Okta supported</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t"><b>OpenFGA</b><small>Who may do what</small></div><div class="t"><b>agentgateway</b><small>Gate for tool calls</small></div></div></div>
+    <div class="grp" data-step="5"><h3><span aria-hidden="true">🔭</span>Observability</h3><div class="tiles"><div class="t"><b>Langfuse</b><small>Traces, tokens and cost</small></div><div class="t sw"><b>Metrics</b><span class="lgs"><img src="assets/logos/prometheus.svg" alt="prometheus"><img src="assets/logos/opentelemetry.svg" alt="opentelemetry"><img src="assets/logos/splunk.svg" alt="splunk"></span><small>Shipped anywhere. We used Splunk.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="6"><h3><span aria-hidden="true">💬</span>Front doors</h3><div class="tiles"><div class="t"><b>Web UI</b></div><div class="t"><b>Chat CLI</b></div><div class="t sw"><b><img class="in" src="assets/logos/slack.svg" alt="">Slack bot</b><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b><img class="in" src="assets/logos/webex.svg" alt="">Webex bot</b><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
   </div>
   <p class="legend"><span class="t sw lg"><b>Swappable</b><i class="swtag">&#8644;</i></span><span class="t lg"><b>Default stack</b></span><span class="src2">From CAIPE&rsquo;s docker-compose and caipe.io. CAIPE is Apache 2.0, and each component keeps its own licence.</span></p>
 </section>
@@ -727,23 +748,26 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   </div>
 </section>
 
-<section class="block" data-min="17.25-18" data-title="Forge at Splunk" data-mode="Talk">
-  <div class="split2">
-    <div class="txt">
+<section class="block compact forge" data-min="17.25-18" data-title="Forge at Splunk" data-mode="Talk">
+  <div class="fhead">
+    <div>
       <h2><span class="grad">Forge at Splunk</span></h2>
-      <p class="lead">One Splunk team: the Splunk Cloud Platform organization.</p>
-      <ul class="points">
-        <li><span class="em" aria-hidden="true">🧑‍💻</span><b>300+</b> engineers within a month of launch</li>
-        <li><span class="em" aria-hidden="true">💬</span><b>90+</b> Slack channels</li>
-        <li><span class="em" aria-hidden="true">🤖</span><b>About 32%</b> resolved with no human engagement</li>
-        <li><span class="em" aria-hidden="true">⏱️</span><b>3.7 hours</b> baseline to &ldquo;mere minutes&rdquo;</li>
-      </ul>
-      <p class="src">Source: Outshift by Cisco blog, published 2026-04-24. Figures self-reported by the team.</p>
+      <p class="lead">An always-on AI assistant for Splunk&rsquo;s platform engineers, built on CAIPE instead of from scratch.</p>
     </div>
-    <div class="side">
-      <div class="logo wide" aria-hidden="true"><div class="glow"></div><img class="lgw" src="assets/logos/splunk.svg" alt=""></div>
-    </div>
+    <img class="fsplunk" src="assets/logos/splunk.svg" alt="Splunk">
   </div>
+  <div class="fcards">
+    <div class="fc rv"><span class="de" aria-hidden="true">🕒</span><h3>The problem</h3><p>Questions piled up across time zones. Alerts waited on humans. The know-how sat buried in Slack threads.</p></div>
+    <div class="fc rv"><span class="de" aria-hidden="true">🤖</span><h3>What Forge does</h3><p>Answers questions in Slack and a web portal, from Slack, Confluence and docs. When an alert fires, it reads the logs, finds the likely cause and drafts a fix. <b>An engineer approves it.</b></p></div>
+    <div class="fc rv"><span class="de" aria-hidden="true">🧩</span><h3>Why they chose CAIPE</h3><p>Open source, so a fast start and a way to contribute back. Production AI expertise already built in. Close collaboration with Outshift.</p></div>
+  </div>
+  <div class="fmetrics rv">
+    <div class="fm"><span aria-hidden="true">🧑‍💻</span><b>300+</b><small>engineers within a month of launch</small></div>
+    <div class="fm"><span aria-hidden="true">💬</span><b>90+</b><small>Slack channels</small></div>
+    <div class="fm"><span aria-hidden="true">✅</span><b>About 32%</b><small>resolved with no human, of 200+ questions a day</small></div>
+    <div class="fm"><span aria-hidden="true">⏱️</span><b>3.7 h to minutes</b><small>average response time</small></div>
+  </div>
+  <p class="src">Source: Outshift by Cisco blog, published 2026-04-24. Figures self-reported by the team.</p>
 </section>
 
 <section class="block compact" data-min="18-19" data-title="Your next Monday" data-mode="Talk">
