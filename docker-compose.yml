@@ -1,0 +1,8 @@
+services:
+  caipe-ai-builders:
+    build: .
+    image: caipe-ai-builders:latest
+    container_name: caipe-ai-builders
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
