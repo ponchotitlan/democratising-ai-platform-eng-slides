@@ -297,6 +297,25 @@ section.block.qa .qrs{width:100%;margin-left:auto;margin-right:auto}
 .qr .u{font-family:var(--mono);font-size:.58em;color:var(--muted);overflow-wrap:anywhere}
 @media (max-width:1200px){.qrs{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.qrs{grid-template-columns:1fr}}
+.mosaic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:1450px;margin-top:.2em}
+.grp{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.grp h3{margin:0;font-size:.95em;display:flex;align-items:center;gap:10px;color:var(--text)}
+.grp h3 span{font-size:1.3em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.tiles .t:only-child{grid-column:1/-1}
+.t{position:relative;display:flex;flex-direction:column;gap:2px;background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:12px;padding:8px 12px;font-size:.66em;line-height:1.25}
+.t b{font-weight:600;color:var(--text)}
+.t small{color:var(--muted);font-size:.88em}
+.t.sw{border-color:var(--teal);background:rgba(45,212,191,.11);box-shadow:inset 0 0 0 1px rgba(45,212,191,.25)}
+.t.sw b{color:var(--teal)}
+.swtag{position:absolute;top:5px;right:9px;font-style:normal;color:var(--teal);font-size:1.15em;line-height:1}
+.t.sw:has(small) b{padding-right:1.4em}
+.legend{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:.9em 0 0}
+.t.lg{flex-direction:row;align-items:center;gap:8px;padding:5px 12px}
+.t.lg .swtag{position:static}
+.src2{font-family:var(--mono);font-size:.55em;color:var(--muted)}
+@media (max-width:1100px){.mosaic{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.mosaic{grid-template-columns:1fr}}
 .vs2-wide{max-width:1300px;margin-top:18px;background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:22px 26px;text-align:center;font-size:1.35em;font-weight:600;line-height:1.35}
 .vs2 h3{margin:0 0 .5em;font-size:1.2em}
 .vs2 p{margin:0}
@@ -584,7 +603,21 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   </div>
 </section>
 
-<section class="block compact" data-min="8-9" data-title="Demo primer: scenario and cast" data-mode="Talk">
+<section class="block compact" id="mosaic" data-min="8-9" data-title="What is inside, and what you can swap" data-mode="Talk">
+  <h2>What is inside, <span class="grad">and what you can swap</span></h2>
+  <p class="lead">The open-source parts of CAIPE, grouped by purpose. The highlighted ones can be swapped if your stack differs.</p>
+  <div class="mosaic">
+    <div class="grp" data-step="1"><h3><span aria-hidden="true">🧠</span>Agents and state</h3><div class="tiles"><div class="t"><b>Dynamic agents</b></div><div class="t"><b>Autonomous agents</b></div><div class="t sw"><b>Models</b><small>Claude, OpenAI, Gemini or any compatible endpoint</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b>Document store</b><small>MongoDB or DocumentDB</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="2"><h3><span aria-hidden="true">🔧</span>Tools</h3><div class="tiles"><div class="t sw"><b>MCP tool servers</b><small>GitHub, Jira, Confluence, ArgoCD, PagerDuty, Komodor, Backstage, Splunk, Slack, Webex, SharePoint, NetUtils. Bring your own.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="3"><h3><span aria-hidden="true">📚</span>Knowledge</h3><div class="tiles"><div class="t"><b>RAG server</b></div><div class="t"><b>Vector store</b><small>Milvus</small></div><div class="t"><b>Graph store</b><small>Neo4j, optional</small></div><div class="t sw"><b>Ingestors</b><small>Web, Jira, Confluence, Slack, Webex</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="4"><h3><span aria-hidden="true">🔐</span>Identity and access</h3><div class="tiles"><div class="t sw"><b>Keycloak</b><small>OIDC single sign-on, Okta supported</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t"><b>OpenFGA</b><small>Who may do what</small></div><div class="t"><b>agentgateway</b><small>Gate for tool calls</small></div></div></div>
+    <div class="grp" data-step="5"><h3><span aria-hidden="true">🔭</span>Observability</h3><div class="tiles"><div class="t"><b>Langfuse</b><small>Traces, tokens and cost</small></div><div class="t sw"><b>Metrics</b><small>Prometheus and OpenTelemetry, shipped anywhere. We used Splunk.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="6"><h3><span aria-hidden="true">💬</span>Front doors</h3><div class="tiles"><div class="t"><b>Web UI</b></div><div class="t"><b>Chat CLI</b></div><div class="t sw"><b>Slack bot</b><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b>Webex bot</b><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+  </div>
+  <p class="legend"><span class="t sw lg"><b>Swappable</b><i class="swtag">&#8644;</i></span><span class="t lg"><b>Default stack</b></span><span class="src2">From CAIPE&rsquo;s docker-compose and caipe.io. CAIPE is Apache 2.0, and each component keeps its own licence.</span></p>
+</section>
+
+<section class="block compact" data-min="9-10" data-title="Demo primer: scenario and cast" data-mode="Talk">
   <h2>The scenario: <span class="grad">LedgerLite</span></h2>
   <div class="scene" role="group" aria-label="The situation">
     <div class="sc"><span class="se" aria-hidden="true">🏦</span><div><b>LedgerLite</b><span>A fictional invoicing and card-payments app, running on Kubernetes</span></div></div>
@@ -616,7 +649,7 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   </div>
 </section>
 
-<section class="block compact" data-min="8-9" data-title="Demo primer: components" data-mode="Talk">
+<section class="block compact" data-min="9-10" data-title="Demo primer: components" data-mode="Talk">
   <h2>What is <span class="grad">in the picture</span></h2>
   <svg class="diagram" viewBox="0 0 1240 450" role="img" aria-labelledby="comp-t" data-diagram="components">
     <title id="comp-t">Components: people reach CAIPE through the web UI or through Slack, whose bot is part of CAIPE; CAIPE holds four agents, a skill and three knowledge bases; agents call MCP tool servers that reach Jira and the Kubernetes cluster</title>
