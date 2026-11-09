@@ -6,3 +6,17 @@ services:
     ports:
       - "8080:8080"
     restart: unless-stopped
+
+  # Cloudflare Tunnel: publishes the deck through your tunnel's hostname.
+  # Off by default; start it with `docker compose --profile tunnel up -d`.
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: caipe-ai-builders-tunnel
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN:-}
+    depends_on:
+      - caipe-ai-builders
+    restart: unless-stopped
+    profiles:
+      - tunnel

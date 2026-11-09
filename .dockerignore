@@ -5,3 +5,5 @@ Dockerfile
 docker-compose.yml
 .dockerignore
 README.md
+.env
+.env.example
