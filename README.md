@@ -1,12 +1,19 @@
-# Democratising AI Platform Engineering with Open Source
+# Talk slide decks
 
-Slide deck for the talk "Own It, Run It, Trust It".
+Two decks, one set of shared images:
+
+```
+ai-builders/   the AI Builders deck (Democratising AI Platform Engineering with Open Source)
+websummit/     the Web Summit deck
+images/        logos, QR codes and photos used by both
+fonts/         fonts used by both
+```
 
 ## Services
 
 | Service | What it does | Port |
 |---|---|---|
-| `caipe-ai-builders` | nginx serving the deck (`index.html` and `assets/`) | 8080 |
+| `caipe-ai-builders` | nginx serving both decks: `/` (AI Builders) and `/websummit/` | 8080 |
 | `cloudflared` | Cloudflare Tunnel to the deck (optional, profile `tunnel`) | none |
 
 ## Run it
@@ -15,7 +22,8 @@ Slide deck for the talk "Own It, Run It, Trust It".
 docker compose up -d --build
 ```
 
-Open <http://localhost:8080>. Stop it with `docker compose down`.
+Open <http://localhost:8080> (AI Builders) or <http://localhost:8080/websummit/> (Web Summit).
+Stop it with `docker compose down`.
 
 ## Reach it through your Cloudflare tunnel
 

@@ -1,11 +1,17 @@
-# Static site served by nginx, running as a non-root user on port 8080.
+# Static sites served by nginx, running as a non-root user on port 8080.
+#   /            the AI Builders deck   (ai-builders/)
+#   /websummit/  the Web Summit deck    (websummit/)
+#   /images/     shared by both         (images/)
+#   /fonts/      shared by both         (fonts/)
 FROM nginxinc/nginx-unprivileged:1.27-alpine
 
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY nginx/security-headers.conf /etc/nginx/snippets/security-headers.conf
 
-COPY index.html /usr/share/nginx/html/index.html
-COPY assets/ /usr/share/nginx/html/assets/
+COPY ai-builders/index.html /usr/share/nginx/html/index.html
+COPY websummit/ /usr/share/nginx/html/websummit/
+COPY images/ /usr/share/nginx/html/images/
+COPY fonts/ /usr/share/nginx/html/fonts/
 
 EXPOSE 8080
 

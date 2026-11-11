@@ -9,12 +9,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Own It, Run It, Trust It</title>
 <style>
-@font-face{font-family:"Space Grotesk";font-weight:400;font-style:normal;font-display:swap;src:url("assets/fonts/SpaceGrotesk-400.woff2") format("woff2")}
-@font-face{font-family:"Space Grotesk";font-weight:500;font-style:normal;font-display:swap;src:url("assets/fonts/SpaceGrotesk-500.woff2") format("woff2")}
-@font-face{font-family:"Inter";font-weight:400;font-style:normal;font-display:swap;src:url("assets/fonts/Inter-400.woff2") format("woff2")}
-@font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:swap;src:url("assets/fonts/Inter-500.woff2") format("woff2")}
-@font-face{font-family:"Inter";font-weight:600;font-style:normal;font-display:swap;src:url("assets/fonts/Inter-600.woff2") format("woff2")}
-@font-face{font-family:"Inter";font-weight:700;font-style:normal;font-display:swap;src:url("assets/fonts/Inter-700.woff2") format("woff2")}
+@font-face{font-family:"Space Grotesk";font-weight:400;font-style:normal;font-display:swap;src:url("../fonts/SpaceGrotesk-400.woff2") format("woff2")}
+@font-face{font-family:"Space Grotesk";font-weight:500;font-style:normal;font-display:swap;src:url("../fonts/SpaceGrotesk-500.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:400;font-style:normal;font-display:swap;src:url("../fonts/Inter-400.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:500;font-style:normal;font-display:swap;src:url("../fonts/Inter-500.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:600;font-style:normal;font-display:swap;src:url("../fonts/Inter-600.woff2") format("woff2")}
+@font-face{font-family:"Inter";font-weight:700;font-style:normal;font-display:swap;src:url("../fonts/Inter-700.woff2") format("woff2")}
 
 :root{
   --bg:#0d1119;
@@ -462,10 +462,10 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
 
 <header class="top">
   <div class="brandbar">
-    <img class="b-cisco" src="assets/logos/cisco-dark.svg" alt="Cisco" onerror="this.style.display='none'">
-    <img class="b-outshift" src="assets/logos/outshift.png" alt="Outshift by Cisco" onerror="this.style.display='none'">
-    <img class="b-devnet" src="assets/logos/devnet-dark.svg" alt="Cisco DevNet" onerror="this.style.display='none'">
-    <img class="b-caipe" src="assets/logos/caipe.png" alt="CAIPE" onerror="this.style.display='none'">
+    <img class="b-cisco" src="../images/logos/cisco-dark.svg" alt="Cisco" onerror="this.style.display='none'">
+    <img class="b-outshift" src="../images/logos/outshift.png" alt="Outshift by Cisco" onerror="this.style.display='none'">
+    <img class="b-devnet" src="../images/logos/devnet-dark.svg" alt="Cisco DevNet" onerror="this.style.display='none'">
+    <img class="b-caipe" src="../images/logos/caipe.png" alt="CAIPE" onerror="this.style.display='none'">
   </div>
   <div class="hud">
     <span class="chip" id="where">1 / 12</span>
@@ -484,14 +484,14 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
 <section class="block" id="intro" data-min="0-0.5" data-title="About me" data-mode="Intro">
   <div class="chat armed" id="chat" role="log" aria-label="Chat with an agent introducing the speaker">
     <div class="chat-head">
-      <img class="av" src="assets/logos/caipe.png" alt="">
+      <img class="av" src="../images/logos/caipe.png" alt="">
       <span class="who">Agent</span>
     </div>
     <div class="chat-body">
       <div class="msg user" id="m-user"><span class="typed" data-type>Introduce our speaker to the room</span></div>
       <div class="msg dots" id="m-dots" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="msg agent" id="m-agent">
-        <img src="assets/profile.jpg" alt="Alfonso (Poncho) Sandoval, as a minifigure with a Cisco Developer lanyard" onerror="this.style.display='none'">
+        <img src="../images/profile.jpg" alt="Alfonso (Poncho) Sandoval, as a minifigure with a Cisco Developer lanyard" onerror="this.style.display='none'">
         <div class="typed" data-type>
           <p>Meet <b>Alfonso &ldquo;Poncho&rdquo; Sandoval</b>.</p>
           <p>Developer Advocate and open-source maintainer at <b>Cisco Systems</b>, based in <b>Lisbon, Portugal</b>.</p>
@@ -614,7 +614,7 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
       <p class="src">One answer, not the answer.</p>
     </div>
     <div class="side">
-      <div class="logo" aria-hidden="true"><div class="glow"></div><img src="assets/logos/caipe.png" alt=""></div>
+      <div class="logo" aria-hidden="true"><div class="glow"></div><img src="../images/logos/caipe.png" alt=""></div>
       <div class="said">
         <span class="lab">What caipe.io says</span>
         <b class="big grad">Open Source AI Platform for All</b>
@@ -628,12 +628,12 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   <h2>What is inside, <span class="grad">and what you can swap</span></h2>
   <p class="lead">The open-source parts of CAIPE, grouped by purpose. The highlighted ones can be swapped if your stack differs.</p>
   <div class="mosaic">
-    <div class="grp" data-step="1"><h3><span aria-hidden="true">🧠</span>Agents and state</h3><div class="tiles"><div class="t"><b>Dynamic agents</b></div><div class="t"><b>Autonomous agents</b></div><div class="t sw"><b>Models</b><span class="lgs"><img src="assets/logos/claude.svg" alt="claude"><img src="assets/logos/openai.svg" alt="openai"><img src="assets/logos/googlegemini.svg" alt="googlegemini"></span><small>or any compatible endpoint</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b>Document store</b><span class="lgs"><img src="assets/logos/mongodb.svg" alt="mongodb"><img src="assets/logos/documentdb.svg" alt="documentdb"></span><small>MongoDB or DocumentDB</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
-    <div class="grp" data-step="2"><h3><span aria-hidden="true">🔧</span>Tools</h3><div class="tiles"><div class="t sw"><b>MCP tool servers</b><span class="lgs"><img src="assets/logos/github.svg" alt="github"><img src="assets/logos/jira.svg" alt="jira"><img src="assets/logos/confluence.svg" alt="confluence"><img src="assets/logos/argo.svg" alt="argo"><img src="assets/logos/pagerduty.svg" alt="pagerduty"><img src="assets/logos/backstage.svg" alt="backstage"><img src="assets/logos/splunk.svg" alt="splunk"><img src="assets/logos/slack.svg" alt="slack"><img src="assets/logos/webex.svg" alt="webex"></span><small>and more. Bring your own.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
-    <div class="grp" data-step="3"><h3><span aria-hidden="true">📚</span>Knowledge</h3><div class="tiles"><div class="t"><b>RAG server</b></div><div class="t"><b><img class="in" src="assets/logos/milvus.svg" alt="">Vector store</b><small>Milvus</small></div><div class="t"><b><img class="in" src="assets/logos/neo4j.svg" alt="">Graph store</b><small>Neo4j, optional</small></div><div class="t sw"><b>Ingestors</b><span class="lgs"><img src="assets/logos/jira.svg" alt="jira"><img src="assets/logos/confluence.svg" alt="confluence"><img src="assets/logos/slack.svg" alt="slack"><img src="assets/logos/webex.svg" alt="webex"></span><small>and the web</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
-    <div class="grp" data-step="4"><h3><span aria-hidden="true">🔐</span>Identity and access</h3><div class="tiles"><div class="t sw"><b><img class="in" src="assets/logos/keycloak.svg" alt="">Keycloak</b><small>OIDC single sign-on, Okta supported</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t"><b>OpenFGA</b><small>Who may do what</small></div><div class="t"><b>agentgateway</b><small>Gate for tool calls</small></div></div></div>
-    <div class="grp" data-step="5"><h3><span aria-hidden="true">🔭</span>Observability</h3><div class="tiles"><div class="t"><b>Langfuse</b><small>Traces, tokens and cost</small></div><div class="t sw"><b>Metrics</b><span class="lgs"><img src="assets/logos/prometheus.svg" alt="prometheus"><img src="assets/logos/opentelemetry.svg" alt="opentelemetry"><img src="assets/logos/splunk.svg" alt="splunk"></span><small>Shipped anywhere. We used Splunk.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
-    <div class="grp" data-step="6"><h3><span aria-hidden="true">💬</span>Front doors</h3><div class="tiles"><div class="t"><b>Web UI</b></div><div class="t"><b>Chat CLI</b></div><div class="t sw"><b><img class="in" src="assets/logos/slack.svg" alt="">Slack bot</b><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b><img class="in" src="assets/logos/webex.svg" alt="">Webex bot</b><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="1"><h3><span aria-hidden="true">🧠</span>Agents and state</h3><div class="tiles"><div class="t"><b>Dynamic agents</b></div><div class="t"><b>Autonomous agents</b></div><div class="t sw"><b>Models</b><span class="lgs"><img src="../images/logos/claude.svg" alt="claude"><img src="../images/logos/openai.svg" alt="openai"><img src="../images/logos/googlegemini.svg" alt="googlegemini"></span><small>or any compatible endpoint</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b>Document store</b><span class="lgs"><img src="../images/logos/mongodb.svg" alt="mongodb"><img src="../images/logos/documentdb.svg" alt="documentdb"></span><small>MongoDB or DocumentDB</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="2"><h3><span aria-hidden="true">🔧</span>Tools</h3><div class="tiles"><div class="t sw"><b>MCP tool servers</b><span class="lgs"><img src="../images/logos/github.svg" alt="github"><img src="../images/logos/jira.svg" alt="jira"><img src="../images/logos/confluence.svg" alt="confluence"><img src="../images/logos/argo.svg" alt="argo"><img src="../images/logos/pagerduty.svg" alt="pagerduty"><img src="../images/logos/backstage.svg" alt="backstage"><img src="../images/logos/splunk.svg" alt="splunk"><img src="../images/logos/slack.svg" alt="slack"><img src="../images/logos/webex.svg" alt="webex"></span><small>and more. Bring your own.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="3"><h3><span aria-hidden="true">📚</span>Knowledge</h3><div class="tiles"><div class="t"><b>RAG server</b></div><div class="t"><b><img class="in" src="../images/logos/milvus.svg" alt="">Vector store</b><small>Milvus</small></div><div class="t"><b><img class="in" src="../images/logos/neo4j.svg" alt="">Graph store</b><small>Neo4j, optional</small></div><div class="t sw"><b>Ingestors</b><span class="lgs"><img src="../images/logos/jira.svg" alt="jira"><img src="../images/logos/confluence.svg" alt="confluence"><img src="../images/logos/slack.svg" alt="slack"><img src="../images/logos/webex.svg" alt="webex"></span><small>and the web</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="4"><h3><span aria-hidden="true">🔐</span>Identity and access</h3><div class="tiles"><div class="t sw"><b><img class="in" src="../images/logos/keycloak.svg" alt="">Keycloak</b><small>OIDC single sign-on, Okta supported</small><i class="swtag" title="Swappable">&#8644;</i></div><div class="t"><b>OpenFGA</b><small>Who may do what</small></div><div class="t"><b>agentgateway</b><small>Gate for tool calls</small></div></div></div>
+    <div class="grp" data-step="5"><h3><span aria-hidden="true">🔭</span>Observability</h3><div class="tiles"><div class="t"><b>Langfuse</b><small>Traces, tokens and cost</small></div><div class="t sw"><b>Metrics</b><span class="lgs"><img src="../images/logos/prometheus.svg" alt="prometheus"><img src="../images/logos/opentelemetry.svg" alt="opentelemetry"><img src="../images/logos/splunk.svg" alt="splunk"></span><small>Shipped anywhere. We used Splunk.</small><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
+    <div class="grp" data-step="6"><h3><span aria-hidden="true">💬</span>Front doors</h3><div class="tiles"><div class="t"><b>Web UI</b></div><div class="t"><b>Chat CLI</b></div><div class="t sw"><b><img class="in" src="../images/logos/slack.svg" alt="">Slack bot</b><i class="swtag" title="Swappable">&#8644;</i></div><div class="t sw"><b><img class="in" src="../images/logos/webex.svg" alt="">Webex bot</b><i class="swtag" title="Swappable">&#8644;</i></div></div></div>
   </div>
   <p class="legend"><span class="t sw lg"><b>Swappable</b><i class="swtag">&#8644;</i></span><span class="t lg"><b>Default stack</b></span><span class="src2">From CAIPE&rsquo;s docker-compose and caipe.io. CAIPE is Apache 2.0, and each component keeps its own licence.</span></p>
 </section>
@@ -648,7 +648,7 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   <p class="lbl">What happens next</p>
   <ol class="story" role="list" aria-label="Scenario flow: customer reports, Jira ticket, on-call engineer runs the Incident Copilot, agents investigate, diagnosis posted on the ticket, human approves or rejects">
     <li class="st h"><span class="se" aria-hidden="true">😟</span><i>1</i><b>Indira</b><span>Payment fails, she reports it</span></li>
-    <li class="st"><span class="se" aria-hidden="true">🎫</span><i>2</i><b><img class="lgi" src="assets/logos/jira.svg" alt="">Jira ticket</b><span>Created in the shared project</span></li>
+    <li class="st"><span class="se" aria-hidden="true">🎫</span><i>2</i><b><img class="lgi" src="../images/logos/jira.svg" alt="">Jira ticket</b><span>Created in the shared project</span></li>
     <li class="st h"><span class="se" aria-hidden="true">🧑‍💻</span><i>3</i><b>Beatriz</b><span>Runs the Incident Copilot</span></li>
     <li class="st a"><span class="se" aria-hidden="true">🤖</span><i>4</i><b>Agents</b><span>Cluster Agent and Knowledge Agent investigate</span></li>
     <li class="st"><span class="se" aria-hidden="true">📝</span><i>5</i><b>Diagnosis</b><span>Posted on the ticket</span></li>
@@ -663,7 +663,7 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
     </div>
     <div class="row2"><span class="lab2">Agents</span>
       <div class="c a"><span aria-hidden="true">🛟</span><b>Incident Copilot</b><span>Resolves a ticket end to end</span></div>
-      <div class="c a"><span aria-hidden="true">☸️</span><b><img class="lgi" src="assets/logos/kubernetes.svg" alt="">Cluster Agent</b><span>Investigates the cluster</span></div>
+      <div class="c a"><span aria-hidden="true">☸️</span><b><img class="lgi" src="../images/logos/kubernetes.svg" alt="">Cluster Agent</b><span>Investigates the cluster</span></div>
       <div class="c a"><span aria-hidden="true">📚</span><b>Knowledge Agent</b><span>Answers from docs, with citations</span></div>
       <div class="c a"><span aria-hidden="true">💬</span><b>Support Agent</b><span>Writes customer-safe replies</span></div>
     </div>
@@ -685,7 +685,7 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
     <path class="edge" data-step="2" d="M172 88H348" marker-end="url(#arr2)"/>
     <path class="edge" data-step="3" d="M172 288H193" marker-end="url(#arr2)"/>
     <g class="node" data-step="3">
-      <rect class="box" x="195" y="256" width="115" height="64" rx="12"/><image class="lg" href="assets/logos/slack.svg" x="205" y="267" width="26" height="26"/><text class="t1" x="240" y="284">Slack</text><text class="t2" x="240" y="306">#caipe</text>
+      <rect class="box" x="195" y="256" width="115" height="64" rx="12"/><image class="lg" href="../images/logos/slack.svg" x="205" y="267" width="26" height="26"/><text class="t1" x="240" y="284">Slack</text><text class="t2" x="240" y="306">#caipe</text>
     </g>
     <path class="edge" data-step="3" d="M312 288H348" marker-end="url(#arr2)"/>
     <g transform="translate(140 0)">
@@ -696,29 +696,29 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
       <rect class="box agent" x="450" y="126" width="200" height="56" rx="10"/><text class="t1" x="550" y="161" text-anchor="middle" style="font-size:19px">Cluster Agent</text>
       <rect class="box agent" x="230" y="194" width="200" height="56" rx="10"/><text class="t1" x="330" y="229" text-anchor="middle" style="font-size:19px">Knowledge Agent</text>
       <rect class="box agent" x="450" y="194" width="200" height="56" rx="10"/><text class="t1" x="550" y="229" text-anchor="middle" style="font-size:19px">Support Agent</text>
-      <rect class="box agent" x="230" y="266" width="200" height="44" rx="10"/><image class="lg" href="assets/logos/slack.svg" x="242" y="277" width="22" height="22"/><text class="t1" x="352" y="296" text-anchor="middle" style="font-size:19px">Slack bot</text>
+      <rect class="box agent" x="230" y="266" width="200" height="44" rx="10"/><image class="lg" href="../images/logos/slack.svg" x="242" y="277" width="22" height="22"/><text class="t1" x="352" y="296" text-anchor="middle" style="font-size:19px">Slack bot</text>
       <rect class="box agent" x="450" y="266" width="200" height="44" rx="10"/><text class="t1" x="550" y="296" text-anchor="middle" style="font-size:19px">Skill: jira-board</text>
-      <text class="head" x="230" y="338">Knowledge bases</text><image class="lg" href="assets/logos/confluence.svg" x="398" y="321" width="20" height="20"/><text class="head" x="424" y="338">from Confluence</text>
+      <text class="head" x="230" y="338">Knowledge bases</text><image class="lg" href="../images/logos/confluence.svg" x="398" y="321" width="20" height="20"/><text class="head" x="424" y="338">from Confluence</text>
       <rect class="box agent" x="230" y="350" width="130" height="56" rx="10"/><text class="t2" x="295" y="384" text-anchor="middle" style="fill:var(--text)">Product docs</text>
       <rect class="box agent" x="380" y="350" width="130" height="56" rx="10"/><text class="t2" x="445" y="384" text-anchor="middle" style="fill:var(--text)">Runbooks</text>
       <rect class="box agent" x="530" y="350" width="120" height="56" rx="10"/><text class="t2" x="590" y="384" text-anchor="middle" style="fill:var(--text)">Past incidents</text>
     </g>
     <path class="edge" data-step="4" d="M672 132H708" marker-end="url(#arr2)"/><path class="edge" data-step="4" d="M672 282H708" marker-end="url(#arr2)"/>
     <g class="node" data-step="4">
-      <rect class="zone" x="710" y="20" width="170" height="410" rx="18"/><text class="head" x="728" y="52">MCP tools</text><image class="lg" href="assets/logos/mcp.svg" x="846" y="34" width="24" height="24"/>
-      <rect class="box" x="725" y="90" width="140" height="84" rx="12"/><image class="lg" href="assets/logos/jira.svg" x="784" y="98" width="22" height="22"/><text class="t1" x="795" y="146" text-anchor="middle">Jira MCP</text>
-      <rect class="box" x="725" y="240" width="140" height="84" rx="12"/><image class="lg" href="assets/logos/kubernetes.svg" x="784" y="248" width="22" height="22"/><text class="t1" x="795" y="296" text-anchor="middle" style="font-size:19px">Kubernetes MCP</text>
+      <rect class="zone" x="710" y="20" width="170" height="410" rx="18"/><text class="head" x="728" y="52">MCP tools</text><image class="lg" href="../images/logos/mcp.svg" x="846" y="34" width="24" height="24"/>
+      <rect class="box" x="725" y="90" width="140" height="84" rx="12"/><image class="lg" href="../images/logos/jira.svg" x="784" y="98" width="22" height="22"/><text class="t1" x="795" y="146" text-anchor="middle">Jira MCP</text>
+      <rect class="box" x="725" y="240" width="140" height="84" rx="12"/><image class="lg" href="../images/logos/kubernetes.svg" x="784" y="248" width="22" height="22"/><text class="t1" x="795" y="296" text-anchor="middle" style="font-size:19px">Kubernetes MCP</text>
     </g>
     <path class="edge" data-step="5" d="M882 132H918" marker-end="url(#arr2)"/><path class="edge" data-step="5" d="M882 282H918" marker-end="url(#arr2)"/>
     <g class="node" data-step="5">
       <rect class="zone" x="920" y="20" width="180" height="410" rx="18"/><text class="head" x="938" y="52">Outside world</text>
-      <rect class="box" x="935" y="90" width="150" height="84" rx="12"/><image class="lg" href="assets/logos/jira.svg" x="999" y="98" width="22" height="22"/><text class="t1" x="1010" y="146" text-anchor="middle">Jira</text>
-      <rect class="box" x="935" y="240" width="150" height="84" rx="12"/><image class="lg" href="assets/logos/kubernetes.svg" x="999" y="247" width="20" height="20"/><text class="t1" x="1010" y="291" text-anchor="middle">Kubernetes</text><text class="t2" x="1010" y="312" text-anchor="middle">LedgerLite</text>
+      <rect class="box" x="935" y="90" width="150" height="84" rx="12"/><image class="lg" href="../images/logos/jira.svg" x="999" y="98" width="22" height="22"/><text class="t1" x="1010" y="146" text-anchor="middle">Jira</text>
+      <rect class="box" x="935" y="240" width="150" height="84" rx="12"/><image class="lg" href="../images/logos/kubernetes.svg" x="999" y="247" width="20" height="20"/><text class="t1" x="1010" y="291" text-anchor="middle">Kubernetes</text><text class="t2" x="1010" y="312" text-anchor="middle">LedgerLite</text>
     </g>
     <path class="edge" data-step="6" d="M672 378H933" marker-end="url(#arr2)"/>
     <text class="t2" data-step="6" x="802" y="368" text-anchor="middle">telemetry</text>
     <g class="node" data-step="6">
-      <rect class="box" x="935" y="336" width="150" height="84" rx="12"/><image class="lg" href="assets/logos/splunk.svg" x="942" y="342" width="136" height="44"/><text class="t1" x="1010" y="404" text-anchor="middle" style="font-size:19px">Dashboard</text>
+      <rect class="box" x="935" y="336" width="150" height="84" rx="12"/><image class="lg" href="../images/logos/splunk.svg" x="942" y="342" width="136" height="44"/><text class="t1" x="1010" y="404" text-anchor="middle" style="font-size:19px">Dashboard</text>
     </g>
     </g>
   </svg>
@@ -754,7 +754,7 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
       <h2><span class="grad">Forge at Splunk</span></h2>
       <p class="lead">An always-on AI assistant for Splunk&rsquo;s platform engineers, built on CAIPE instead of from scratch.</p>
     </div>
-    <img class="fsplunk" src="assets/logos/splunk.svg" alt="Splunk">
+    <img class="fsplunk" src="../images/logos/splunk.svg" alt="Splunk">
   </div>
   <div class="fcards">
     <div class="fc rv"><span class="de" aria-hidden="true">🕒</span><h3>The problem</h3><p>Questions piled up across time zones. Alerts waited on humans. The know-how sat buried in Slack threads.</p></div>
@@ -793,25 +793,25 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
   <p class="lead">Scan a code, or click a title, to keep going.</p>
   <div class="qrs">
     <div class="qr" data-step="1">
-      <a class="ring" href="https://caipe.io/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="tile"><img src="assets/qr/qr-caipe.png" alt="QR code for the official CAIPE website" width="230" height="230"></span></a>
+      <a class="ring" href="https://caipe.io/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="tile"><img src="../images/qr/qr-caipe.png" alt="QR code for the official CAIPE website" width="230" height="230"></span></a>
       <span class="sub">Start here</span>
       <a class="ttl" href="https://caipe.io/" target="_blank" rel="noopener"><span aria-hidden="true">🌐</span> The official CAIPE website</a>
       <span class="u">caipe.io</span>
     </div>
     <div class="qr" data-step="2">
-      <a class="ring" href="https://www.linkedin.com/in/asandovalros/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="tile"><img src="assets/qr/qr-linkedin.png" alt="QR code for LinkedIn" width="230" height="230"></span></a>
+      <a class="ring" href="https://www.linkedin.com/in/asandovalros/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="tile"><img src="../images/qr/qr-linkedin.png" alt="QR code for LinkedIn" width="230" height="230"></span></a>
       <span class="sub">Connect with the speaker</span>
       <a class="ttl" href="https://www.linkedin.com/in/asandovalros/" target="_blank" rel="noopener"><span aria-hidden="true">💼</span> LinkedIn</a>
       <span class="u">linkedin.com/in/asandovalros</span>
     </div>
     <div class="qr" data-step="3">
-      <a class="ring" href="https://github.com/ponchotitlan/ai-platform-for-the-many-caipe" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="tile"><img src="assets/qr/qr-github-demo.png" alt="QR code for The session demo on GitHub" width="230" height="230"></span></a>
+      <a class="ring" href="https://github.com/ponchotitlan/ai-platform-for-the-many-caipe" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="tile"><img src="../images/qr/qr-github-demo.png" alt="QR code for The session demo on GitHub" width="230" height="230"></span></a>
       <span class="sub">Run it yourself</span>
       <a class="ttl" href="https://github.com/ponchotitlan/ai-platform-for-the-many-caipe" target="_blank" rel="noopener"><span aria-hidden="true">🧪</span> The session demo on GitHub</a>
       <span class="u">github.com/ponchotitlan/ai-platform-for-the-many-caipe</span>
     </div>
     <div class="qr" data-step="4">
-      <a class="ring" href="https://developer.cisco.com/learning/search/?contentType=lab&keyword=caipe" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="tile"><img src="assets/qr/qr-learning-lab.png" alt="QR code for CAIPE Learning Lab on DevNet" width="230" height="230"></span></a>
+      <a class="ring" href="https://developer.cisco.com/learning/search/?contentType=lab&keyword=caipe" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><span class="tile"><img src="../images/qr/qr-learning-lab.png" alt="QR code for CAIPE Learning Lab on DevNet" width="230" height="230"></span></a>
       <span class="sub">Learn it step by step</span>
       <a class="ttl" href="https://developer.cisco.com/learning/search/?contentType=lab&keyword=caipe" target="_blank" rel="noopener"><span aria-hidden="true">🎓</span> CAIPE Learning Lab on DevNet</a>
       <span class="u">developer.cisco.com/learning</span>
