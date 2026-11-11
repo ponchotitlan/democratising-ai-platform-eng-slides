@@ -1,22 +1,44 @@
+# One service per deck. Run one at a time on the tunnel: both claim the network alias
+# "deck", so the tunnel's public hostname always points at http://deck:8080 and
+# whichever deck is running is the one that gets exposed.
+x-deck: &deck
+  restart: unless-stopped
+  networks:
+    default:
+      aliases:
+        - deck
+
 services:
-  caipe-ai-builders:
-    build: .
+  ai-builders:
+    <<: *deck
+    build:
+      context: .
+      args:
+        DECK: ai-builders
     image: caipe-ai-builders:latest
     container_name: caipe-ai-builders
     ports:
       - "8080:8080"
-    restart: unless-stopped
 
-  # Cloudflare Tunnel: publishes the deck through your tunnel's hostname.
-  # Off by default; start it with `docker compose --profile tunnel up -d`.
+  websummit:
+    <<: *deck
+    build:
+      context: .
+      args:
+        DECK: websummit
+    image: caipe-websummit:latest
+    container_name: caipe-websummit
+    ports:
+      - "8081:8080"
+
+  # Cloudflare Tunnel: publishes the running deck through your tunnel's hostname.
+  # Off by default; start it with `docker compose --profile tunnel up -d cloudflared`.
   cloudflared:
     image: cloudflare/cloudflared:latest
-    container_name: caipe-ai-builders-tunnel
+    container_name: caipe-tunnel
     command: tunnel --no-autoupdate run
     environment:
       - TUNNEL_TOKEN=${TUNNEL_TOKEN:-}
-    depends_on:
-      - caipe-ai-builders
     restart: unless-stopped
     profiles:
       - tunnel
