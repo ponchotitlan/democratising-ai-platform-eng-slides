@@ -368,6 +368,10 @@ html.shot .msg.dots{display:none!important}
 #yours .fiveq-row{margin-top:30px}
 .fq i{font-style:normal;font-family:var(--mono);font-size:.85em;color:var(--teal);font-weight:400}
 @media (max-width:1100px){.fiveq-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
+section.block.video{align-items:center}
+.video-frame{width:min(100%,1100px);aspect-ratio:16/9;margin:0 auto;border-radius:12px;overflow:hidden;background:#000}
+.video-link{text-align:center;margin-top:.8em;font-size:.8em;opacity:.7}
+.video-frame iframe{width:100%;height:100%;border:0;display:block}
 section.block.qa{align-items:center;text-align:center}
 section.block.qa p.lead{margin-left:auto;margin-right:auto}
 section.block.qa .qrs{width:100%;margin-left:auto;margin-right:auto}
@@ -943,6 +947,13 @@ ul.points.tagged li{display:flex;justify-content:space-between;gap:20px;align-it
       <img src="../images/memes/spongebob-fire.gif" alt="SpongeBob meme GIF, an animated reaction to everything being on fire">
     </figure>
   </div>
+</section>
+
+<section class="block video" data-min="33-33" data-title="Video" data-mode="Demo B">
+  <div class="video-frame">
+    <iframe src="https://www.youtube-nocookie.com/embed/J9VWVIiNH90" title="Demo video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+  <p class="video-link"><a href="https://youtu.be/J9VWVIiNH90" target="_blank" rel="noopener">Not playing? Watch on YouTube</a></p>
 </section>
 
 <section class="block compact" data-min="33-34" data-title="Observability: what happened?" data-mode="Talk">
